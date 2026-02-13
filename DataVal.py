@@ -39,6 +39,16 @@ class CheckType:
         
         return benign_count, malignant_count
     
+    def get_diagnosis_distribution(self, df):
+        mydict = {}
+        for diagnosis in df['diagnosis']:
+            if diagnosis in mydict:
+                mydict[diagnosis] += 1
+            else:
+                mydict[diagnosis] = 1
+        
+        return mydict
+    
 
 
 report = CheckType(df)
@@ -62,10 +72,15 @@ print("\nTop 5 Body Locations:")
 loc_dist = report.get_distribution('anatom_site_general_challenge')
 for label, val in list(loc_dist.items())[:5]:
     print(f"  {label}: {val}")
-
+#print how many benign and malignant cases there are in the dataset
 print(f"Total Benign: {b_total}")
 print(f"Total Malignant: {m_total}")
 
+# print the diagnosis types and their counts
+diagnosis_dist = report.get_diagnosis_distribution(df)
+print("\nDiagnosis Distribution:")
+for diagnosis, count in diagnosis_dist.items():
+    print(f"  {diagnosis}: {count}")
 
 """
 count = 0
