@@ -1,2 +1,5 @@
 # Ignore Data
 data/
+
+# Vs Code Settings
+.vscode/
