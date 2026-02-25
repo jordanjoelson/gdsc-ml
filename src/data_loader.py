@@ -7,6 +7,7 @@ def get_train_data(train_path):
         train_path,
         image_size = (380, 380),
         batch_size = 40,
+        label_mode="categorical",
         validation_split = .2,
         subset = "training",
         seed = 42,
@@ -14,12 +15,13 @@ def get_train_data(train_path):
     
     return train_data
 
-def get_test_data(test_path):
+def get_val_data(test_path):
 
     test_data = image_dataset_from_directory(
         test_path,
         image_size = (380, 380),
         batch_size = 40,
+        label_mode="categorical",
         validation_split = .2,
         subset = "validation",
         seed = 42,
