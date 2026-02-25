@@ -20,7 +20,7 @@ def get_test_data(test_path):
         test_path,
         image_size = (380, 380),
         batch_size = 40,
-        validation = .2,
+        validation_split = .2,
         subset = "validation",
         seed = 42,
         shuffle = True)
